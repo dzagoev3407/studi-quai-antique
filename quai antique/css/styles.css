@@ -1,0 +1,714 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body 
+{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+}
+  
+  
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  
+  /* Carousel base class */
+  .carousel 
+  {
+    margin-bottom: 4rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption 
+  {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item 
+  {
+    height: 32rem;
+    background-color: #777;
+  }
+
+  .carousel-item > img 
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+  
+  
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 
+  {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 
+  {
+    font-weight: 400;
+  }
+  .marketing .col-lg-4 p 
+  {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  
+  
+  /* Featurettes
+  ------------------------- */
+  
+  .featurette-divider 
+  {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  
+  /* Thin out the marketing headings */
+  .featurette-heading 
+  {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
+  
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  
+  @media (min-width: 40em) 
+  {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  
+    .featurette-heading 
+    {
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width: 62em) 
+  {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+
+.logo
+{
+    font-family: "Playball", "Courant";
+}
+
+.modal-reserv
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content 
+{
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close 
+{
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-expand-md .navbar-nav
+{
+    margin-left: 65px;
+}
+
+.section
+{
+  background-color: #906427;
+  color: #fff;
+  padding: 15px;
+}
+
+.notre-carte
+{
+  margin-top: 45px;
+}
+
+.card-subtitle
+{
+  font-size: 14px;
+  float: right;
+  background-color: #906427;
+  color: #fff;
+}
+
+.list-group
+{
+  list-style-type: none;
+}
+
+.list-group > li
+{
+  text-align: center;
+}
+
+.btn-reservation
+{
+  margin-left: 130px;
+}
+
+.btn-espace-user 
+{
+  display: grid;
+  margin-left: auto;
+}
+
+.register-btn
+{
+  margin-top: 10px;
+}
+
+.title-galerie 
+{
+  position: relative;
+  margin-bottom: 45px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 44px;
+  text-transform: uppercase;
+  color: #424242;
+}
+.gallerie 
+{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+}
+  
+.item 
+{
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: flex 0.8s ease;
+}
+.item:hover 
+{
+  flex: 7;
+}
+  
+.item-1 
+{
+  background-image: url("https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+  
+.item-2 
+{
+  background-image: url("https://img.cuisineaz.com/660x660/2016/04/28/i94428-homard-grille-sabayon-au-champagne.webp");
+}
+
+.item-3 
+{
+  background-image: url("https://img.cuisineaz.com/660x660/2015/11/26/i95015-magrets-de-canard-aux-patates-douces-et-cacao.webp");
+  }
+  .item-4 
+  {
+  background-image: url("https://img.cuisineaz.com/660x660/2018/11/03/i143840-foie-gras-aux-pommes-caramelisees.webp");
+  }
+  .item-5 {
+  background-image: url("https://img.cuisineaz.com/660x660/2018/09/07/i142426-ecrase-de-pomme-de-terre-aux-truffe.webp");
+}
+
+.contact{
+  width: 100%;
+  max-width: 1400px;
+  padding: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subtitle-contact
+{
+  width: 100%;
+  margin-bottom: 80px;
+  text-transform: uppercase;
+  color: #322;
+  font-size: 45px;
+}
+
+.contact-info, .contact-form
+{
+  flex: 1;
+}
+
+.item
+{
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #322;
+}
+
+.icon
+{
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background-color: #3494db;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.contact-form
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.textb
+{
+  width: calc(50% - 10px);
+  height: 50px;
+  padding: 12px;
+  background-color: #222;
+  border: none;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+textarea
+{
+  width: 100%;
+  min-height: 200px;
+  max-height: 400px;
+  resize: vertical;
+  padding: 12px;
+  background-color: #222;
+  border: none;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.btn-contact-envoi
+{
+  width: 120px;
+  height: 40px;
+  margin-left: auto;
+  background-color: #3494db;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid #3494db;
+  transition: .3s linear;
+}
+
+.btn-contact-envoi:hover
+{
+  background-color: transparent;
+  color: #3494db;
+}
+
+.footer
+{
+  background-color: #B6AC97;
+}
+
+.full-width-footer
+{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.logo-footer
+{
+  font-family: "Playball", "Courant";
+  color: #000;
+  margin-top: -35px;
+}
+
+.day-footer
+{
+  list-style-type: none;
+}
+
+.hover-effect1 
+{
+  min-height: 20px;
+  background: #F44336;
+  text-align: center;
+}
+
+.hover-effect1 ul 
+{
+ padding-top: 1px;
+}
+
+.hover-effect1 ul li 
+{
+ display: inline-block;
+}
+
+.hover-effect1 ul li a 
+{
+ font-size: 30px;
+ text-align: center;
+ color: #fff;
+ margin: 0px 10px;
+ line-height: 50px;
+ display: inline-block;
+ width: 50px;
+ height: 50px;
+ background:#dc3545;
+ -webkit-transition: all .6s ease;
+ -moz-transition: all .6s ease;
+ -ms-transition: all .6s ease;
+ -o-transition: all .6s ease;
+ transition: all .6s ease;
+}
+
+.hover-effect1 ul li:hover a 
+{
+  border-radius: 50%;
+  background: #dc3545;
+ -moz-transform: rotate(360deg);
+ -webkit-transform: rotate(360deg);
+ -o-transform: rotate(360deg);
+ -ms-transform: rotate(360deg);
+ transform: rotate(360deg);
+}
+
+.horaires ul
+{
+  color: #fff;
+}
+
+.navbar-register
+{
+  margin-top: -49px;
+  background-color: #B6AC97;
+}
+
+.navbar-register .breadcrumb
+{
+  background-color: #906427;
+  color: #fff;
+}
+
+.form-register 
+{
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.logo-register
+{
+  font-family: "Playball", "Courant";
+}
+.form-register .checkbox 
+{
+  font-weight: 400;
+}
+.form-register .form-control 
+{
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-register .form-control:focus 
+{
+  z-index: 2;
+}
+.form-register input[type="email"] 
+{
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-register input[type="password"] 
+{
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cnx-none
+{
+  margin-top: -50px;
+}
+
+.cnx-success
+{
+  margin-top: -50px;
+}
+
+/* Page d'administration */
+
+.modal-confirm
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content 
+{
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-message 
+{
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-confirm-button 
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.card-text-plat
+{
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-full-text 
+{
+  display: none;
+}
+
+.img-card-page
+{
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  width: 320px;
+  height: 170px;
+  display: flex;
+  margin: auto;
+}
+
+.img-card-page:hover
+{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ESPACE CLIENT */
+
+/* Popup de bienvenue */
+
+.welcome 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-welcome
+{
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+h1 
+{
+  text-align: center;
+}
+
+table 
+{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td 
+{
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th 
+{
+  background-color: #f2f2f2;
+}
+
+.button-container 
+{
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Page de réservation */
+
+.container-reservation 
+{
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+.title-reserv 
+{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-reserv 
+{
+  margin-top: 20px;
+}
+
+.label-resev 
+{
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.input-reserv 
+{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.select-reserv 
+{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  appearance: none;
+  background: url("down-arrow.png") no-repeat right center;
+  background-size: 20px;
+}
+
+.btn-submit-reserv 
+{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007aff;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit-reserv:hover 
+{
+  background-color: #0056b3
+}
+/* Fin de la partie ESPACE CLIENT */
+
+/* Responsive */
+
+@media screen and (max-width: 950px)
+{
+  .gallerie
+  {
+    display: inline-grid;
+  }
+
+  .contact
+  {
+    max-width: 800px;
+  }
+
+  .subtitle-contact
+  {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .contact-info, .contact-form
+  {
+    flex: 100%;
+    margin-bottom: 30px;
+  }
+
+  .textb
+  {
+    width: 100%;
+  }
+}
