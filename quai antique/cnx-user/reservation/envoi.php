@@ -63,6 +63,7 @@ if(isset($_POST['btn-submit']))
                 Vos allergies mentionnée : <strong><?php echo $allergie ?></strong>.
             </div>
 
+
                 <a href="../espace-user.php"><button class="btn btn-success">Espace client</button></a>
 
             <?php

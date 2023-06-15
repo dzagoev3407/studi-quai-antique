@@ -1,3 +1,9 @@
+/* test */
+/*
+console.log('Test');
+*/
+
+
 /* Modal connexion avant réservation */
 
 var modal_cnx = document.getElementById("modal-cnx-reserv");

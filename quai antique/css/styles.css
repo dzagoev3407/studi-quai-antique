@@ -553,6 +553,24 @@ textarea
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+.user-icon-dashboard
+{
+  font-size: 2.5em;
+  color: #906427;
+}
+
+.ustensil-icon-dashboard
+{
+  font-size: 2.5em;
+  color: #906427;
+}
+
+.admin-icon-dashboard
+{
+  font-size: 2.5em;
+  color: #906427;
+}
+
 /* ESPACE CLIENT */
 
 /* Popup de bienvenue */

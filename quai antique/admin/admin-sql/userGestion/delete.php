@@ -43,7 +43,7 @@ if(isset($id))
         <div class="alert alert-success text-center" role="alert">
             Suppression de l'utilisateur avec l'id <?= ".$id."?> a bien été supprimé de notre base de données !
         </div>
-        <a class="text-decoration-none text-white" href="../dashboard.php"><button class="btn btn-success">Retour</a></button>
+        <a class="text-decoration-none text-white" href="../../../dashboard.php"><button class="btn btn-success">Retour</a></button>
 
         <?php
         }

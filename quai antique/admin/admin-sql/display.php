@@ -15,3 +15,43 @@ $sqlDeux = "SELECT * FROM `reservations` ORDER BY `id` DESC";
 $reqDeux = $db->query($sqlDeux);
 
 $displayReserv = $reqDeux->fetchAll();
+
+/* Affiche les utilisateurs inscrits sur le site */
+
+$sqlDisplayUserRegister = "SELECT COUNT(*) AS `id` FROM registerQuaiAntique";
+
+$reqRegisterUser = $db->query($sqlDisplayUserRegister);
+
+$displayUserRegister = $reqRegisterUser->fetch();
+
+$displayUserRegisterCount = $displayUserRegister['id'];
+
+/* Affiche les cartes et menus disponibles sur le site */
+
+$sqlDisplayCarte = "SELECT COUNT(*) AS `id` FROM carte";
+
+$reqDisplayCarte = $db->query($sqlDisplayCarte);
+
+$fetchDisplayCarte = $reqDisplayCarte->fetch();
+
+$displayCarte = $fetchDisplayCarte['id'];
+
+/* ========================= */
+
+$sqlDisplayMenus = "SELECT COUNT(*) AS `id` FROM menus";
+
+$reqDisplayMenus = $db->query($sqlDisplayMenus);
+
+$fetchDisplayMenus = $reqDisplayMenus->fetch();
+
+$displayMenus = $fetchDisplayMenus['id'];
+
+/* Affiche le nombre d'administrateur disponible sur le site */
+
+$sqlDisplayAdmins = "SELECT COUNT(*) AS `id` FROM admin";
+
+$reqDisplayAdmins = $db->query($sqlDisplayAdmins);
+
+$fetchDisplayAdmins = $reqDisplayAdmins->fetch();
+
+$displayAdmins = $fetchDisplayAdmins['id'];

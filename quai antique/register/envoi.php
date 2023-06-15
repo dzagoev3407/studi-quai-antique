@@ -26,10 +26,10 @@ include('../mySQL/cnx.php');
 
 if(isset($_POST['btn-submit']))
 {
-  $email = $_POST['email'];
-  $nom = $_POST['nom'];
-  $prenom = $_POST['prenom'];
-  $mdp = $_POST['mdp'];
+  $email = htmlspecialchars($_POST['email']);
+  $nom = htmlspecialchars($_POST['nom']);
+  $prenom = htmlspecialchars($_POST['prenom']);
+  $mdp = htmlspecialchars($_POST['mdp']);
 
   if(!empty($email) && !empty($mdp))
   {
@@ -48,11 +48,23 @@ if(isset($_POST['btn-submit']))
         $registerUser = $req->execute();
         if($registerUser)
         {
+
+          /* Le code pour envoyer la confirmation de l'inscription à l'email de l'utilisateur */
+          
+          $to = $email;
+          $sujet = "Confirmation de votre inscription";
+          $message = "Merci de votre inscription sur le site du restaurant du Quai Antique, vous pouvez désormais vous connecter à votre espace client ICI !";
+          $linkEspaceClient = "https://kevinbonnefoy.fr/quai_antique/cnx-user/cnx.php";
+
+          mail($to, $sujet, $message, $linkEspaceClient);
+
           ?>
         <div class="alert alert-success" role="alert">
             Votre adresse email : <strong><?php echo $email ?></strong> ainsi que votre nom et prénom <?php echo $nom.$prenom ?>, ont bien été ajouté à notre base de données !";
             <br>
             Vous pouvez dès à présent vous connecter à votre espace client !
+            <br>
+            Un mail de confirmation va vous être envoyé à l'adresse : <?= $email ?>
             
             <a class="text-decoration-none text-white" href="../cnx-user/cnx.php"><button class="btn btn-success">Se connecter</a></button>
         </div>

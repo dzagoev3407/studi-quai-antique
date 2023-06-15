@@ -25,8 +25,8 @@ include('../../../mySQL/cnx.php');
 
 if(isset($_POST['btn-submit']))
 {
-    $email = $_POST['email'];
-    $mdp = $_POST['mdp'];
+    $email = htmlspecialchars($_POST['email']);
+    $mdp = htmlspecialchars($_POST['mdp']);
 
     if(!empty($email) && !empty($mdp))
     {
@@ -48,9 +48,21 @@ if(isset($_POST['btn-submit']))
 
             <div class="alert alert-success" role="alert">
                 L'administrateur avec l'email : <strong><?= $email ?></strong> a bien été ajouté dans la base de données !
+                <br>
+                Une confirmation par mail va arriver par mail avec toutes les infos
             </div>
 
             <?php
+
+            /* Ceci va envoyer à l'email de l'administrateur principal du site une confirmation avec toutes les infos du nouvel admin */
+
+            $emailAdmin = "kevin.bonnefoy8407@outlook.fr";
+            $sujet = "Nouvel Admin ajouté";
+            $message = "Bonjour, vous venez d'ajouter un administrateur pour qu'il puisse faire des modifications sur votre site web. Bonne journée !";
+            $infoNewAdmin = "Voici ses infos, email : ".$email." et son mot de passe : ".$mdp.".";
+
+            mail($emailAdmin, $sujet, $message, $infoNewAdmin);
+            
             }
             else
             {

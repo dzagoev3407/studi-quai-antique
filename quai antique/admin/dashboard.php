@@ -22,6 +22,9 @@ $email = $_SESSION['email'];
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<!-- Icon Bootstrap -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <!--Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
 	</head>
 <body>
 
@@ -156,40 +159,112 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
 ?>
 
 <div class="container">
-             <nav>
-                 <ul class="nav flex-column flex-md-row">
-                    <h2 class="menu-title">Ajouter :</h2>
-                     <li class="nav-item"><a class="nav-link" href="admin-sql/menus/addMenu.php">un menu</a></li>
-                     <li class="nav-item"><a class="nav-link" href="admin-sql/carte/addCarte.php">une carte</a></li>
-                     <li class="nav-item"><a class="nav-link" href="admin-sql/galerie-img/addImg.php">une image</a></li>
-                 </ul>
-             </nav>
-         </div>
+    <nav>
+        <ul class="nav flex-column flex-md-row">
+            <h2 class="menu-title">Ajouter :</h2>
+                <li class="nav-item"><a class="nav-link" href="admin-sql/menus/addMenu.php">un menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-sql/carte/addCarte.php">une carte</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-sql/galerie-img/addImg.php">une image</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-sql/addAdmin/form.php">un admin</a></li>
+        </ul>
+    </nav>
+</div>
 
-<div class="table-user">
-    <h2>Nos clients inscrits :</h2>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id client</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <?php foreach($displayUser as $displayUsers): ?>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $displayUsers['id'] ?></th>
-      <td><?php echo $displayUsers['Nom'] ?></td>
-      <td><?php echo $displayUsers['prenom'] ?></td>
-      <td><?php echo $displayUsers['email'] ?></td>
-      <td><a class="text-decoration-none text-white" href="admin-sql/userGestion/delete.php?id=<?= $displayUsers['id'] ?>"><button class="btn btn-danger">Supprimer</a></button></td>
-    </tr>
-  </tbody>
-<?php endforeach; ?>
-</table>
+<!--Icon récapitulatif -->
+
+<div class="container">
+<h2>Disponible sur le site :</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="text-center user-icon-dashboard">
+            <i class="bi bi-people-fill"></i>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Utilisateur inscrits :</h5>
+          <p class="card-text">Il y'a <strong class="text-primary"><?= $displayUserRegisterCount ?></strong> d'utilisateurs inscrits sur le site</p>
+        <div class="text-center">
+          <button class="btn btn-primary" onclick="popUpClient()">Détails</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="text-center ustensil-icon-dashboard">
+            <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Cartes & menus disponibles :</h5>
+          <p class="card-text">Il y'a <strong class="text-primary"><?= $displayCarte ?></strong> cartes disponibles.</p>
+          <p class="card-text">Il y'a <strong class="text-primary"><?= $displayMenus ?></strong> menus disponibles.</p>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="">Détails</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="text-center admin-icon-dashboard">
+            <i class="fa-sharp fa-solid fa-screwdriver-wrench"></i>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Admins disponibles :</h5>
+          <p class="card-text">
+            <?php
+
+            if($displayAdmins >= 2)
+            {
+                ?>
+
+                Il y'a actuellement <strong class="text-primary"><?= $displayAdmins ?></strong> admins disponibles.
+
+                <?php
+            }
+            else
+            {
+                ?>
+
+                Il y'a actuellement <strong class="text-primary"><?= $displayAdmins ?></strong> admin disponible.
+
+                <?php
+            }
+
+            ?>
+        </p>
+        <div class="text-center">
+            <button class="btn btn-primary">Détails</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="table-client" class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID du client</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <?php foreach($displayUser as $displayUsers): ?>
+    <tbody>
+      <tr>
+        <td><?php echo $displayUsers['id'] ?></td>
+        <td><?php echo $displayUsers['Nom'] ?></td>
+        <td><?php echo $displayUsers['prenom'] ?></td>
+        <td><?php echo $displayUsers['email'] ?></td>
+        <td><a class="text-decoration-none text-white" href="admin-sql/userGestion/delete.php?id=<?= $displayUsers['id']?>"><button class="btn btn-danger">Supprimer</button></a></td>
+      </tr>
+    </tbody>
+    <?php endforeach; ?>
+  </table>
 </div>
 
 
@@ -197,7 +272,7 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
 
 <h2 class="text-center">Réservations effectuées :</h2>
 
-<div class="container">
+<div id="table-reservation" class="container">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -240,4 +315,5 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
     }
     ?>
     </body>
+<script src="../js/dashboardAdmin.js"></script>
 </html>

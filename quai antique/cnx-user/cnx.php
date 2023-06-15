@@ -10,10 +10,10 @@ $emailAdmin = 'kevin.bonnefoy8407@outlook.fr'; // email admin
 
 if(isset($_POST['btn-submit']))
 {
-    $email = $_POST['email'];
-    $mdp = $_POST['mdp'];
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
+    $email = htmlspecialchars($_POST['email']);
+    $mdp = htmlspecialchars($_POST['mdp']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
 
     if(!empty($email) && !empty($mdp))
     {
@@ -30,7 +30,16 @@ if(isset($_POST['btn-submit']))
 
             if($email)
             {
-                header("Location: $pageUser");
+                // Sujet du message
+                $sujet = "Alerte de connexion utilisateur";
+
+                // Message
+                $message = "L'utilisateur ayant pour email $email s'est connecté à son espace client.";
+
+                // Envoi de l'email d'alerte à l'administrateur
+                mail($emailAdmin, $sujet, $message);
+
+                header("Location: espace-user.php");
             }
             
         }

@@ -3,6 +3,22 @@ session_start();
 include('../mySQL/cnx.php');
 $email = $_SESSION['email'];
 
+/* Montrer le nombre de réservation pour l'utilisateur */
+
+$sqlDisplayCount = "SELECT `count` FROM `reservation_count` 
+                    WHERE `email` = :email";
+
+$reqCount = $db->prepare($sqlDisplayCount);
+
+$reqCount->bindvalue(':email', $email);
+
+$displayCount = $reqCount->execute();
+
+if($displayCount)
+{
+  $resultCount = $reqCount->fetch(PDO::FETCH_ASSOC);
+}
+
 ?>
 
 <!doctype html>
@@ -51,7 +67,23 @@ if($email)
 
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Mes réservations</a>
+    <?php
+      if($resultCount)
+      {
+        $displayCountUser = $resultCount['count'];
+        ?>
+
+           <a class="nav-link active" href="#" target="_blank">(<?= $displayCountUser ?>)Mes réservations</a>
+
+        <?php
+      }
+      else
+      {
+        ?>
+            <a class="nav-link active" href="#" target="_blank">Pas encore de réservation sur ce compte !</a>
+        <?php
+      }
+      ?>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="reservation/reserv.php" target="_blank">Réserver</a>
