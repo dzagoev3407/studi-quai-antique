@@ -195,11 +195,10 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
             <i class="fa-solid fa-utensils"></i>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Cartes & menus disponibles :</h5>
-          <p class="card-text">Il y'a <strong class="text-primary"><?= $displayCarte ?></strong> cartes disponibles.</p>
-          <p class="card-text">Il y'a <strong class="text-primary"><?= $displayMenus ?></strong> menus disponibles.</p>
+          <h5 class="card-title">Réservations effectuées</h5>
+          <p class="card-text">Il y'a <strong class="text-primary"><?= $displayReservation ?></strong> de réservations effectuées par nos clients.</p>
         <div class="text-center">
-            <button class="btn btn-primary" onclick="">Détails</button>
+            <button class="btn btn-primary" onclick="popUpReservation()">Détails</button>
         </div>
         </div>
       </div>
@@ -234,7 +233,7 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
             ?>
         </p>
         <div class="text-center">
-            <button class="btn btn-primary">Détails</button>
+            <button class="btn btn-primary" onclick="popupAdmin()">Détails</button>
         </div>
         </div>
       </div>
@@ -242,7 +241,9 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
   </div>
 </div>
 
-<div id="table-client" class="container">
+<!-- Tableau des clients inscrits sur le site -->
+
+<div id="table-client" class="container" style="display: none;">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -265,14 +266,15 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
     </tbody>
     <?php endforeach; ?>
   </table>
+  <div class="text-center">
+    <button class="btn btn-danger" onclick="fermerPopUpClient()">Fermer</button>
+  </div>
 </div>
 
 
 <!-- Tableau des réservation -->
 
-<h2 class="text-center">Réservations effectuées :</h2>
-
-<div id="table-reservation" class="container">
+<div id="table-reservation" class="container" style="display: none;">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -301,6 +303,37 @@ if($email) // SI le mail a bien été trouvé sur la base de données on affiche
     </tbody>
     <?php endforeach; ?>
   </table>
+  <div class="text-center">
+    <button class="btn btn-danger" onclick="fermerPopUpReservation()">Fermer</button>
+  </div>
+</div>
+
+<!-- Tableau des administrateurs disponible sur le site -->
+
+<div id="table-admin" class="container" style="display: none;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID de l'admin</th>
+        <th>Email</th>
+        <th>Mot de passe de l'administrateur</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <?php foreach($displayAdminTable as $displayAdminTables): ?>
+    <tbody>
+      <tr>
+        <td><?php echo $displayAdminTables['id'] ?></td>
+        <td><?php echo $displayAdminTables['email'] ?></td>
+        <td><?php echo $displayAdminTables['mdp'] ?></td>
+        <td><a class="text-decoration-none text-white" href="admin-sql/addAdmin/delete.php?id=<?= $displayAdminTables['id']?>"><button class="btn btn-danger">Supprimer</button></a></td>
+      </tr>
+    </tbody>
+    <?php endforeach; ?>
+  </table>
+  <div class="text-center">
+    <button class="btn btn-danger" onclick="fermerPopUpAdmin()">Fermer</button>
+  </div>
 </div>
 
     <?php

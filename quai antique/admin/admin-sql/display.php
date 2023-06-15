@@ -55,3 +55,24 @@ $reqDisplayAdmins = $db->query($sqlDisplayAdmins);
 $fetchDisplayAdmins = $reqDisplayAdmins->fetch();
 
 $displayAdmins = $fetchDisplayAdmins['id'];
+
+/* ======================================== */
+
+/* Affiche le nombre de réservations effectuées sur le site */
+
+$sqlDisplayReservation = "SELECT COUNT(*) AS `id` FROM reservations";
+
+$reqDisplayReservation = $db->query($sqlDisplayReservation);
+
+$fetchDisplayReservation = $reqDisplayReservation->fetch();
+
+$displayReservation = $fetchDisplayReservation['id'];
+
+/* Afficher nos administrateurs */
+
+$sqlDisplayAdminTable = "SELECT * FROM `admin` 
+                         ORDER BY `id` DESC";
+
+$reqDisplayAdminTable = $db->query($sqlDisplayAdminTable);
+
+$displayAdminTable = $reqDisplayAdminTable->fetchAll();

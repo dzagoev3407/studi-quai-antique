@@ -26,3 +26,15 @@ function fermerPopUpReservation()
     var closePopUpReservation = document.getElementById("table-reservation");
     closePopUpReservation.style.display = "none";
 } // Fermer la pop up TABLEAU RESERVATION
+
+function popupAdmin()
+{
+    var tableAdmin = document.getElementById("table-admin");
+    tableAdmin.style.display = "block";
+}
+
+function fermerPopUpAdmin()
+{
+    var closePopUpAdmin = document.getElementById("table-admin");
+    closePopUpAdmin.style.display = "none";
+} // Fermer la pop up TABLEAU ADMIN 
